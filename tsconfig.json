@@ -12,6 +12,7 @@
     "esModuleInterop": true,
     "sourceMap": false,
     "outDir": "dist",
+    "rootDir": "src"
     // "types": [
     //   "vite/client"
     // ]
