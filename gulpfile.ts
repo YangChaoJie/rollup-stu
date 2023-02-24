@@ -1,7 +1,13 @@
-import gulp from 'gulp'
-const { series, parallel } = gulp;
+import { series, parallel, src, dest }  from 'gulp'
 // The `clean` function is not exported so it can be considered a private task.
 // It can still be used within the `series()` composition.
+import gulpSass from 'gulp-sass';
+import autoprefixer from 'gulp-autoprefixer';
+import cleanCSS from 'gulp-clean-css';
+import dartSass from 'sass'
+import fs from 'fs-extra'
+import { resolve } from 'node:path'
+const { existsSync, emptyDir, mkdirSync } = fs
 function clean(cb: any) {
   // body omitted
   console.log('clean-----');
@@ -26,5 +32,27 @@ function css(cb: any) {
   cb();
 }
 
-const a = series(clean, build, parallel(javascript, css))
+function ensureEmptyDir(dir: string) {
+  existsSync(dir) ? emptyDir(dir) : mkdirSync(dir)
+}
+
+// function typeScriptTransfrom () {
+//   return src('src/*.ts').pipe()
+// }
+const cssDir = resolve(__dirname, 'css')
+const themesDir = resolve(__dirname, 'themes')
+
+function buildStyle() {
+  ensureEmptyDir(cssDir)
+
+  const sass = gulpSass(dartSass)
+
+  return src(resolve(__dirname, 'style/*.scss'))
+    .pipe(sass.sync())
+    .pipe(autoprefixer({ cascade: false }))
+    .pipe(cleanCSS())
+    .pipe(dest(cssDir))
+}
+
+const a = series(clean, build, parallel(javascript, css, buildStyle))
 export default a
