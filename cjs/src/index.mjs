@@ -1,0 +1,1 @@
+"use strict";require("./vue/index.mjs");/* empty css                   */

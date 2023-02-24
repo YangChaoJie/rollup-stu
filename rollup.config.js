@@ -9,6 +9,16 @@ import autoprefixer from 'autoprefixer';
 export default [
   {
     input: 'src/index.ts',
+    external: ['vue'],
+    extractCSS: true,
+    plugins: [dts()],
+    output: {
+      file: `dist/index.d.ts`,
+      format: 'es',
+    },
+  },
+  {
+    input: 'src/index.ts',
     plugins: [
       // scss(),
       esbuild(),
@@ -37,15 +47,5 @@ export default [
         exports: 'named'
       }
     ]
-  },
-  {
-    input: 'src/index.ts',
-    external: ['vue'],
-    extractCSS: true,
-    plugins: [dts(), postcss()],
-    output: {
-      file: `dist/index.d.ts`,
-      format: 'es',
-    },
   }
 ]
