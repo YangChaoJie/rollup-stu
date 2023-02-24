@@ -11,7 +11,7 @@ export default {
       input: 'src/index.ts',
       output: [
         {
-          dir: 'es',
+          dir: 'dist/es',
           format: 'es',
           // sourcemap: true,
           preserveModules: true,
@@ -20,7 +20,7 @@ export default {
           exports: 'named'
         },
         {
-          dir: 'cjs',
+          dir: 'dist/cjs',
           format: 'cjs',
           // sourcemap: 'true',
           preserveModules: true,

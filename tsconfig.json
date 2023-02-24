@@ -1,26 +1,80 @@
+// {
+//   "compilerOptions": {
+//     "target": "esnext",
+//     "module": "esnext",
+//     "allowJs": true,
+//     "strict": true,
+//     "moduleResolution": "node",
+//     "skipLibCheck": true,
+//     "importHelpers": true,
+//     "noUnusedLocals": false,
+//     "experimentalDecorators": true,
+//     "resolveJsonModule": true,
+//     "esModuleInterop": true,
+//     "allowSyntheticDefaultImports": true,
+//     "sourceMap": false,
+//     "outDir": "dist",
+//     "types": [
+//       "node",
+//       "vite/client"
+//     ],
+//     // "rootDir": "src",
+//     "baseUrl": ".",
+//     // "types": [
+//     //   "vite/client"
+//     // ]
+//     "paths": {
+//       "@/*": [
+//         "./*"
+//       ]
+//     },
+//     "lib": [
+//       "esnext",
+//       "dom"
+//     ]
+//   },
+//   "include": [
+//     "scripts",
+//     "src",
+//     "tests"
+//   ],
+//   "exclude": [
+//     "node_modules"
+//   ]
+// }
 {
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
     "allowJs": false,
     "strict": true,
+    "jsx": "preserve",
+    "importHelpers": true,
     "moduleResolution": "node",
     "skipLibCheck": true,
-    "noUnusedLocals": true,
+    "noUnusedLocals": false,
     "experimentalDecorators": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "sourceMap": false,
-    "outDir": "dist",
-    "rootDir": "src"
-    // "types": [
-    //   "vite/client"
-    // ]
+    "baseUrl": ".",
+    "types": [
+      "node",
+      "vite/client"
+    ],
+    "paths": {
+      "@/*": [
+        "./*"
+      ]
+    },
+    "lib": [
+      "esnext",
+      "dom"
+    ]
   },
   "include": [
-    "scripts",
-    "src",
-    "tests"
+    "gulpfile.ts"
   ],
   "exclude": [
     "node_modules"
